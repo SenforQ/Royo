@@ -1,0 +1,663 @@
+[
+  {
+    "RoroNickName": "StoryTeller",
+    "RoroUserIcon": "assets/figure/1/character_1_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/1/character_1_img_1.webp",
+      "assets/figure/1/character_1_img_2.webp",
+      "assets/figure/1/character_1_img_3.webp",
+      "assets/figure/1/character_1_img_4.webp",
+      "assets/figure/1/character_1_img_5.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/1/character_1_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/1/character_1_video_1.webp"
+    ],
+    "RoroShowMotto": "Passionate about strength training and building a powerful physique",
+    "RoroShowFollowNum": 10,
+    "RoroShowLike": 12,
+    "RoroShowSayhi": "Hey! Welcome to my fitness journey! I'm passionate about training and I can't wait to share my workout routines and tips with you.",
+    "RoroShowBackground": "A dedicated fitness enthusiast who loves strength training and building muscle. Known for consistent training and passion for progressive overload. Always ready to share workout tips and motivation.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Adaptation Phase - Learn movements, build base. Week 2: Strength Focus - Heavy compound lifts. Week 3: Hypertrophy Phase - Moderate weight, high volume. Week 4: Performance Test - Max lifts, then recovery.",
+      "insight": "Four weeks creates measurable change. The periodization approach maximizes gains while preventing plateaus. Monthly reflection shows how far you've come."
+    }
+  },
+  {
+    "RoroNickName": "VoiceMaster",
+    "RoroUserIcon": "assets/figure/2/character_2_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/2/character_2_img_1.webp",
+      "assets/figure/2/character_2_img_2.webp",
+      "assets/figure/2/character_2_img_3.webp",
+      "assets/figure/2/character_2_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/2/character_2_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/2/character_2_video_1.webp"
+    ],
+    "RoroShowMotto": "Dedicated to cardio fitness and endurance challenges",
+    "RoroShowFollowNum": 7,
+    "RoroShowLike": 13,
+    "RoroShowSayhi": "Hi! Thanks for checking out my profile. I love working out and I think you'll enjoy my training content. My dedication brings something special to every session.",
+    "RoroShowBackground": "Passionate about cardio fitness with a focus on endurance. Brings energetic approach to every training session, making each workout challenging and rewarding.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "NarratorPro",
+    "RoroUserIcon": "assets/figure/3/character_3_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/3/character_3_img_1.webp",
+      "assets/figure/3/character_3_img_2.webp",
+      "assets/figure/3/character_3_img_3.webp",
+      "assets/figure/3/character_3_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/3/character_3_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/3/character_3_video_1.webp"
+    ],
+    "RoroShowMotto": "Love pushing limits through intense workout sessions",
+    "RoroShowFollowNum": 3,
+    "RoroShowLike": 7,
+    "RoroShowSayhi": "Welcome! I love connecting through fitness. I think you'll enjoy what I have prepared! My energetic style brings something special to every workout.",
+    "RoroShowBackground": "An athlete who loves pushing physical limits through intense training. Combines strength and conditioning to achieve peak performance and impressive results.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "TaleWeaver",
+    "RoroUserIcon": "assets/figure/4/character_4_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/4/character_4_img_1.webp",
+      "assets/figure/4/character_4_img_2.webp",
+      "assets/figure/4/character_4_img_3.webp",
+      "assets/figure/4/character_4_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/4/character_4_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/4/character_4_video_1.webp"
+    ],
+    "RoroShowMotto": "Committed to functional fitness and movement quality",
+    "RoroShowFollowNum": 4,
+    "RoroShowLike": 7,
+    "RoroShowSayhi": "Greetings! I'm thrilled you're here. Let's dive into some amazing training together! My focused approach brings something special to every session.",
+    "RoroShowBackground": "A fitness coach passionate about functional movement and quality training. Known for detailed workout plans and ability to inspire others to reach their goals.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "StoryCraft",
+    "RoroUserIcon": "assets/figure/5/character_5_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/5/character_5_img_1.webp",
+      "assets/figure/5/character_5_img_2.webp",
+      "assets/figure/5/character_5_img_3.webp",
+      "assets/figure/5/character_5_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/5/character_5_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/5/character_5_video_1.webp"
+    ],
+    "RoroShowMotto": "Enthusiastic about weightlifting and progressive strength gains",
+    "RoroShowFollowNum": 7,
+    "RoroShowLike": 11,
+    "RoroShowSayhi": "Hey there! I'm excited to share some incredible workouts with you. Ready for a challenge? My intense style brings something special to every training.",
+    "RoroShowBackground": "An enthusiast of weightlifting with a focus on powerlifting. Combines technical precision with mental toughness to achieve impressive strength gains.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "VoiceArtist",
+    "RoroUserIcon": "assets/figure/6/character_6_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/6/character_6_img_1.webp",
+      "assets/figure/6/character_6_img_2.webp",
+      "assets/figure/6/character_6_img_3.webp",
+      "assets/figure/6/character_6_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/6/character_6_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/6/character_6_video_1.webp"
+    ],
+    "RoroShowMotto": "Focused on athletic performance and peak conditioning",
+    "RoroShowFollowNum": 8,
+    "RoroShowLike": 10,
+    "RoroShowSayhi": "Hello friend! Ready to explore some powerful workouts? I've got plenty to share! My dedicated approach brings something special to every session.",
+    "RoroShowBackground": "Loves high-intensity training and metabolic conditioning. With an energetic personality, brings explosive energy to workouts that challenge both body and mind.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio & Core - 30min run + 15min abs. Day 2: Upper Body - Push-ups, pull-ups, dumbbells. Day 3: Lower Body - Squats, lunges, leg press. Day 4: Full Body HIIT - 20min intense circuit. Day 5: Active Recovery - Yoga & stretching.",
+      "insight": "Five days of focused training builds consistency. Each day targets different muscle groups, preventing overuse. The variety keeps motivation high and prevents plateaus."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Foundation Building - Focus on form and consistency. Week 2: Intensity Increase - Add weight and reps. Week 3: Volume Phase - More sets and exercises. Week 4: Peak Performance - Maximum effort, then deload.",
+      "insight": "A month-long journey shows real transformation. Progressive overload each week builds strength and confidence. The deload week prevents overtraining and prepares for next cycle."
+    }
+  },
+  {
+    "RoroNickName": "NarrativeGenius",
+    "RoroUserIcon": "assets/figure/7/character_7_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/7/character_7_img_1.webp",
+      "assets/figure/7/character_7_img_2.webp",
+      "assets/figure/7/character_7_img_3.webp",
+      "assets/figure/7/character_7_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/7/character_7_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/7/character_7_video_1.webp"
+    ],
+    "RoroShowMotto": "Passionate about bodyweight training and calisthenics",
+    "RoroShowFollowNum": 5,
+    "RoroShowLike": 9,
+    "RoroShowSayhi": "Hey! Welcome! I'm passionate about fitness and I can't wait to share my favorite training methods with you.",
+    "RoroShowBackground": "A dedicated runner passionate about cardiovascular health and endurance. Known for consistent training and ability to push through mental barriers during long runs.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "TaleSpinner",
+    "RoroUserIcon": "assets/figure/8/character_8_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/8/character_8_img_1.webp",
+      "assets/figure/8/character_8_img_2.webp",
+      "assets/figure/8/character_8_img_3.webp",
+      "assets/figure/8/character_8_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/8/character_8_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/8/character_8_video_1.webp"
+    ],
+    "RoroShowMotto": "Dedicated to powerlifting and strength development",
+    "RoroShowFollowNum": 6,
+    "RoroShowLike": 12,
+    "RoroShowSayhi": "Hi! Thanks for stopping by. I love training and I think you'll enjoy what I have to share. My motivational style brings something special to every workout.",
+    "RoroShowBackground": "Passionate about bodyweight training and calisthenics. Brings creative approach to training, making bodyweight exercises challenging and effective.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Adaptation Phase - Learn movements, build base. Week 2: Strength Focus - Heavy compound lifts. Week 3: Hypertrophy Phase - Moderate weight, high volume. Week 4: Performance Test - Max lifts, then recovery.",
+      "insight": "Four weeks creates measurable change. The periodization approach maximizes gains while preventing plateaus. Monthly reflection shows how far you've come."
+    }
+  },
+  {
+    "RoroNickName": "StoryVoice",
+    "RoroUserIcon": "assets/figure/9/character_9_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/9/character_9_img_1.webp",
+      "assets/figure/9/character_9_img_2.webp",
+      "assets/figure/9/character_9_img_3.webp",
+      "assets/figure/9/character_9_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/9/character_9_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/9/character_9_video_1.webp"
+    ],
+    "RoroShowMotto": "Love high-intensity training and metabolic conditioning",
+    "RoroShowFollowNum": 3,
+    "RoroShowLike": 14,
+    "RoroShowSayhi": "Welcome! I love connecting through fitness. I think you'll enjoy what I have prepared! My progressive style brings something special to every session.",
+    "RoroShowBackground": "An athlete focused on muscle building and physique development. Combines strategic training with nutrition knowledge to achieve impressive transformations.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Full Body Strength. Tue: Cardio & Core. Wed: Upper Body Focus. Thu: Lower Body Power. Fri: HIIT Training. Sat: Active Recovery & Mobility. Sun: Long Distance Run.",
+      "insight": "Seven days provides complete coverage. Each day has a specific purpose, from strength to recovery. The weekly cycle creates sustainable habits and measurable progress."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Adaptation Phase - Learn movements, build base. Week 2: Strength Focus - Heavy compound lifts. Week 3: Hypertrophy Phase - Moderate weight, high volume. Week 4: Performance Test - Max lifts, then recovery.",
+      "insight": "Four weeks creates measurable change. The periodization approach maximizes gains while preventing plateaus. Monthly reflection shows how far you've come."
+    }
+  },
+  {
+    "RoroNickName": "NarratorElite",
+    "RoroUserIcon": "assets/figure/10/character_10_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/10/character_10_img_1.webp",
+      "assets/figure/10/character_10_img_2.webp",
+      "assets/figure/10/character_10_img_3.webp",
+      "assets/figure/10/character_10_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/10/character_10_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/10/character_10_video_1.webp"
+    ],
+    "RoroShowMotto": "Committed to balanced fitness and overall wellness",
+    "RoroShowFollowNum": 2,
+    "RoroShowLike": 5,
+    "RoroShowSayhi": "Greetings! I'm thrilled you're here. Let's dive into some intense training together! My challenging approach brings something special to every workout.",
+    "RoroShowBackground": "Loves cross-training and varied workout styles. With a versatile approach, brings fresh perspectives to training that keep workouts exciting and effective.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "VoiceCraft",
+    "RoroUserIcon": "assets/figure/11/character_11_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/11/character_11_img_1.webp",
+      "assets/figure/11/character_11_img_2.webp",
+      "assets/figure/11/character_11_img_3.webp",
+      "assets/figure/11/character_11_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/11/character_11_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/11/character_11_video_1.webp"
+    ],
+    "RoroShowMotto": "Enthusiastic about running and cardiovascular health",
+    "RoroShowFollowNum": 7,
+    "RoroShowLike": 12,
+    "RoroShowSayhi": "Hey there! I'm excited to share some amazing fitness content with you. Ready for motivation? My dedicated style brings something special to every session.",
+    "RoroShowBackground": "A fitness enthusiast dedicated to flexibility and mobility. Known for yoga practice and passion for movement quality that enhances overall performance.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "StoryGenius",
+    "RoroUserIcon": "assets/figure/12/character_12_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/12/character_12_img_1.webp",
+      "assets/figure/12/character_12_img_2.webp",
+      "assets/figure/12/character_12_img_3.webp",
+      "assets/figure/12/character_12_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/12/character_12_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/12/character_12_video_1.webp"
+    ],
+    "RoroShowMotto": "Focused on muscle building and physique development",
+    "RoroShowFollowNum": 2,
+    "RoroShowLike": 14,
+    "RoroShowSayhi": "Hello! Welcome to my training world. I've got some incredible workouts waiting for you! My focused approach brings something special to every training.",
+    "RoroShowBackground": "Passionate about outdoor activities and adventure fitness. Brings adventurous spirit to training, combining fitness with exploration and nature.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio & Core - 30min run + 15min abs. Day 2: Upper Body - Push-ups, pull-ups, dumbbells. Day 3: Lower Body - Squats, lunges, leg press. Day 4: Full Body HIIT - 20min intense circuit. Day 5: Active Recovery - Yoga & stretching.",
+      "insight": "Five days of focused training builds consistency. Each day targets different muscle groups, preventing overuse. The variety keeps motivation high and prevents plateaus."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "TaleMaster",
+    "RoroUserIcon": "assets/figure/13/character_13_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/13/character_13_img_1.webp",
+      "assets/figure/13/character_13_img_2.webp",
+      "assets/figure/13/character_13_img_3.webp",
+      "assets/figure/13/character_13_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/13/character_13_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/13/character_13_video_1.webp"
+    ],
+    "RoroShowMotto": "Passionate about cross-training and varied workouts",
+    "RoroShowFollowNum": 2,
+    "RoroShowLike": 9,
+    "RoroShowSayhi": "Hey! Welcome! I'm passionate about strength training and I can't wait to share my favorite exercises with you.",
+    "RoroShowBackground": "An athlete focused on competitive sports and athletic challenges. Combines training discipline with competitive drive to achieve peak performance.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio & Core - 30min run + 15min abs. Day 2: Upper Body - Push-ups, pull-ups, dumbbells. Day 3: Lower Body - Squats, lunges, leg press. Day 4: Full Body HIIT - 20min intense circuit. Day 5: Active Recovery - Yoga & stretching.",
+      "insight": "Five days of focused training builds consistency. Each day targets different muscle groups, preventing overuse. The variety keeps motivation high and prevents plateaus."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Full Body Strength. Tue: Cardio & Core. Wed: Upper Body Focus. Thu: Lower Body Power. Fri: HIIT Training. Sat: Active Recovery & Mobility. Sun: Long Distance Run.",
+      "insight": "Seven days provides complete coverage. Each day has a specific purpose, from strength to recovery. The weekly cycle creates sustainable habits and measurable progress."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Foundation Building - Focus on form and consistency. Week 2: Intensity Increase - Add weight and reps. Week 3: Volume Phase - More sets and exercises. Week 4: Peak Performance - Maximum effort, then deload.",
+      "insight": "A month-long journey shows real transformation. Progressive overload each week builds strength and confidence. The deload week prevents overtraining and prepares for next cycle."
+    }
+  },
+  {
+    "RoroNickName": "NarrativePro",
+    "RoroUserIcon": "assets/figure/14/character_14_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/14/character_14_img_1.webp",
+      "assets/figure/14/character_14_img_2.webp",
+      "assets/figure/14/character_14_img_3.webp",
+      "assets/figure/14/character_14_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/14/character_14_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/14/character_14_video_1.webp"
+    ],
+    "RoroShowMotto": "Dedicated to flexibility and mobility improvement",
+    "RoroShowFollowNum": 3,
+    "RoroShowLike": 15,
+    "RoroShowSayhi": "Hi! Thanks for stopping by. I love fitness and I think you'll enjoy what I have to share. My energetic style brings something special to every workout.",
+    "RoroShowBackground": "Loves sustainable fitness and long-term health. With a balanced approach, brings holistic perspective to training that promotes lifelong wellness.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Adaptation Phase - Learn movements, build base. Week 2: Strength Focus - Heavy compound lifts. Week 3: Hypertrophy Phase - Moderate weight, high volume. Week 4: Performance Test - Max lifts, then recovery.",
+      "insight": "Four weeks creates measurable change. The periodization approach maximizes gains while preventing plateaus. Monthly reflection shows how far you've come."
+    }
+  },
+  {
+    "RoroNickName": "VoiceWeaver",
+    "RoroUserIcon": "assets/figure/15/character_15_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/15/character_15_img_1.webp",
+      "assets/figure/15/character_15_img_2.webp",
+      "assets/figure/15/character_15_img_3.webp",
+      "assets/figure/15/character_15_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/15/character_15_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/15/character_15_video_1.webp"
+    ],
+    "RoroShowMotto": "Love competitive sports and athletic challenges",
+    "RoroShowFollowNum": 6,
+    "RoroShowLike": 8,
+    "RoroShowSayhi": "Welcome! I love connecting through training. I think you'll enjoy what I have prepared! My challenging approach brings something special to every session.",
+    "RoroShowBackground": "A dedicated trainer passionate about group fitness and community. Known for motivating classes and ability to create supportive training environments.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "StoryElite",
+    "RoroUserIcon": "assets/figure/16/character_16_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/16/character_16_img_1.webp",
+      "assets/figure/16/character_16_img_2.webp",
+      "assets/figure/16/character_16_img_3.webp",
+      "assets/figure/16/character_16_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/16/character_16_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/16/character_16_video_1.webp"
+    ],
+    "RoroShowMotto": "Committed to sustainable fitness and long-term health",
+    "RoroShowFollowNum": 9,
+    "RoroShowLike": 11,
+    "RoroShowSayhi": "Greetings! I'm thrilled you're here. Let's dive into some powerful workouts together! My intense style brings something special to every training.",
+    "RoroShowBackground": "Passionate about personal records and continuous improvement. Brings goal-oriented mindset to training, making each session a step toward new achievements.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Establish Routine - 4-5 days per week, moderate intensity. Week 2: Progressive Overload - Increase weights by 5-10%. Week 3: Volume Training - Add extra sets. Week 4: Peak & Recovery - Push limits, then active rest.",
+      "insight": "Monthly planning allows for systematic progression. Each week builds upon the previous, creating cumulative gains. Tracking monthly results provides motivation and direction."
+    }
+  },
+  {
+    "RoroNickName": "TaleVoice",
+    "RoroUserIcon": "assets/figure/17/character_17_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/17/character_17_img_1.webp",
+      "assets/figure/17/character_17_img_2.webp",
+      "assets/figure/17/character_17_img_3.webp",
+      "assets/figure/17/character_17_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/17/character_17_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/17/character_17_video_1.webp"
+    ],
+    "RoroShowMotto": "Enthusiastic about outdoor activities and adventure fitness",
+    "RoroShowFollowNum": 4,
+    "RoroShowLike": 11,
+    "RoroShowSayhi": "Hey there! I'm excited to share some amazing fitness tips with you. Ready for inspiration? My motivational approach brings something special to every session.",
+    "RoroShowBackground": "An enthusiast of rehabilitation and injury prevention. Combines training knowledge with recovery strategies to maintain long-term fitness and health.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio Kickstart - 35min treadmill + 10min rowing. Day 2: Push Day - Chest, triceps, shoulders. Day 3: Pull Day - Back, biceps, rear delts. Day 4: Leg Day - Quads, hamstrings, glutes. Day 5: Conditioning - Battle ropes, burpees, sprints.",
+      "insight": "Five days allows for comprehensive training. Splitting push/pull/legs ensures balanced development. The conditioning day builds mental toughness and endurance."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Adaptation Phase - Learn movements, build base. Week 2: Strength Focus - Heavy compound lifts. Week 3: Hypertrophy Phase - Moderate weight, high volume. Week 4: Performance Test - Max lifts, then recovery.",
+      "insight": "Four weeks creates measurable change. The periodization approach maximizes gains while preventing plateaus. Monthly reflection shows how far you've come."
+    }
+  },
+  {
+    "RoroNickName": "NarratorCraft",
+    "RoroUserIcon": "assets/figure/18/character_18_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/18/character_18_img_1.webp",
+      "assets/figure/18/character_18_img_2.webp",
+      "assets/figure/18/character_18_img_3.webp",
+      "assets/figure/18/character_18_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/18/character_18_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/18/character_18_video_1.webp"
+    ],
+    "RoroShowMotto": "Focused on rehabilitation and injury prevention",
+    "RoroShowFollowNum": 6,
+    "RoroShowLike": 12,
+    "RoroShowSayhi": "Hello! Welcome to my fitness community. I've got some incredible training content waiting for you! My dedicated style brings something special to every workout.",
+    "RoroShowBackground": "Loves strength training with a focus on compound movements. With a technical approach, brings precision to training that maximizes muscle development.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Cardio & Core - 30min run + 15min abs. Day 2: Upper Body - Push-ups, pull-ups, dumbbells. Day 3: Lower Body - Squats, lunges, leg press. Day 4: Full Body HIIT - 20min intense circuit. Day 5: Active Recovery - Yoga & stretching.",
+      "insight": "Five days of focused training builds consistency. Each day targets different muscle groups, preventing overuse. The variety keeps motivation high and prevents plateaus."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Push Workout - Chest, shoulders, triceps. Tue: Pull Workout - Back, biceps. Wed: Legs & Glutes. Thu: Cardio & Core. Fri: Full Body Strength. Sat: Yoga & Stretching. Sun: Outdoor Activity - Hiking or cycling.",
+      "insight": "A week-long plan builds discipline and routine. The push/pull/legs split ensures all muscles get attention. Active recovery days prevent burnout and maintain enthusiasm."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Adaptation Phase - Learn movements, build base. Week 2: Strength Focus - Heavy compound lifts. Week 3: Hypertrophy Phase - Moderate weight, high volume. Week 4: Performance Test - Max lifts, then recovery.",
+      "insight": "Four weeks creates measurable change. The periodization approach maximizes gains while preventing plateaus. Monthly reflection shows how far you've come."
+    }
+  },
+  {
+    "RoroNickName": "VoiceGenius",
+    "RoroUserIcon": "assets/figure/19/character_19_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/19/character_19_img_1.webp",
+      "assets/figure/19/character_19_img_2.webp",
+      "assets/figure/19/character_19_img_3.webp",
+      "assets/figure/19/character_19_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/19/character_19_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/19/character_19_video_1.webp"
+    ],
+    "RoroShowMotto": "Passionate about group fitness and community training",
+    "RoroShowFollowNum": 9,
+    "RoroShowLike": 14,
+    "RoroShowSayhi": "Hey! Welcome! I'm passionate about athletic performance and I can't wait to share my training methods with you.",
+    "RoroShowBackground": "A fitness coach passionate about metabolic conditioning. Known for challenging workouts and ability to design programs that boost fitness levels quickly.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Strength Training. Tue: Cardio Intervals. Wed: Upper Body. Thu: Lower Body. Fri: Full Body Circuit. Sat: Mobility & Flexibility. Sun: Endurance Challenge.",
+      "insight": "Seven days creates a complete fitness lifestyle. Variety prevents boredom and targets all fitness components. The structure helps track weekly progress and achievements."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Adaptation Phase - Learn movements, build base. Week 2: Strength Focus - Heavy compound lifts. Week 3: Hypertrophy Phase - Moderate weight, high volume. Week 4: Performance Test - Max lifts, then recovery.",
+      "insight": "Four weeks creates measurable change. The periodization approach maximizes gains while preventing plateaus. Monthly reflection shows how far you've come."
+    }
+  },
+  {
+    "RoroNickName": "StorySpinner",
+    "RoroUserIcon": "assets/figure/20/character_20_img_1.webp",
+    "RoroShowPhotoArray": [
+      "assets/figure/20/character_20_img_1.webp",
+      "assets/figure/20/character_20_img_2.webp",
+      "assets/figure/20/character_20_img_3.webp",
+      "assets/figure/20/character_20_img_4.webp"
+    ],
+    "RoroShowVideoArray": [
+      "assets/figure/20/character_20_video_1.mp4"
+    ],
+    "RoroShowThumbnailArray": [
+      "assets/figure/20/character_20_video_1.webp"
+    ],
+    "RoroShowMotto": "Dedicated to personal records and continuous improvement",
+    "RoroShowFollowNum": 3,
+    "RoroShowLike": 6,
+    "RoroShowSayhi": "Hi! Thanks for checking out my profile. I love working out and I think you'll enjoy my content. My progressive style brings something special to every session.",
+    "RoroShowBackground": "Dedicated to athletic performance and peak conditioning. Combines multiple training modalities to create comprehensive programs that build complete athletes.",
+    "RoroShowWorkoutPlan5Days": {
+      "plan": "Day 1: Strength Training - Deadlifts, bench press, rows. Day 2: Cardio Blast - 40min cycling intervals. Day 3: Upper Body Focus - Shoulders, arms, chest. Day 4: Lower Body Power - Squats, deadlifts, calves. Day 5: Endurance Run - 45min steady pace.",
+      "insight": "A structured 5-day plan creates momentum. Progressive overload each session ensures continuous improvement. Rest days are crucial for muscle recovery and growth."
+    },
+    "RoroShowWorkoutPlan7Days": {
+      "plan": "Mon: Full Body Strength. Tue: Cardio & Core. Wed: Upper Body Focus. Thu: Lower Body Power. Fri: HIIT Training. Sat: Active Recovery & Mobility. Sun: Long Distance Run.",
+      "insight": "Seven days provides complete coverage. Each day has a specific purpose, from strength to recovery. The weekly cycle creates sustainable habits and measurable progress."
+    },
+    "RoroShowWorkoutPlan1Month": {
+      "plan": "Week 1: Foundation Building - Focus on form and consistency. Week 2: Intensity Increase - Add weight and reps. Week 3: Volume Phase - More sets and exercises. Week 4: Peak Performance - Maximum effort, then deload.",
+      "insight": "A month-long journey shows real transformation. Progressive overload each week builds strength and confidence. The deload week prevents overtraining and prepares for next cycle."
+    }
+  }
+]

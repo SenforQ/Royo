@@ -32,7 +32,7 @@ class _FigureCallPageState extends State<FigureCallPage> {
   Future<void> _startCall() async {
     // 播放音频
     try {
-      await _audioPlayer.play(AssetSource('royoVideoMusic.mp3'));
+      await _audioPlayer.play(AssetSource('NABIMusic.mp3'));
     } catch (e) {
       print('Error playing audio: $e');
     }

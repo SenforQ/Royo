@@ -8,11 +8,11 @@ import UIKit
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
       
-      let PluginArray = ["UIApplication","launchOptions","LaunchOptionsKey"];
-      for str in PluginArray {
-          print(str)
-      }
-      print(PluginArray[4]);
+//      let PluginArray = ["UIApplication","launchOptions","LaunchOptionsKey","didFinishLaunchingWithOptions"];
+//      for str in PluginArray {
+//          print(str)
+//      }
+//      print(PluginArray[4]);
       
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

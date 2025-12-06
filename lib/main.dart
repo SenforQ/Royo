@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/course_page.dart';
+import 'pages/exercise_page.dart';
 import 'pages/activity_page.dart';
 import 'pages/me_page.dart';
 import 'pages/welcome_page.dart';
@@ -77,6 +78,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<Widget> _pages = [
     const CoursePage(),
+    const ExercisePage(),
     const ActivityPage(),
     const MePage(),
   ];
@@ -107,11 +109,16 @@ class _MainPageState extends State<MainPage> {
                       ),
                       _buildTabItem(
                         index: 1,
+                        normalImage: 'assets/btn_exercise_pre.png',
+                        selectedImage: 'assets/btn_exercise_nor.png',
+                      ),
+                      _buildTabItem(
+                        index: 2,
                         normalImage: 'assets/btn_tab_activity_pre.webp',
                         selectedImage: 'assets/btn_tab_activity_nor.webp',
                       ),
                       _buildTabItem(
-                        index: 2,
+                        index: 3,
                         normalImage: 'assets/btn_tab_me_pre.webp',
                         selectedImage: 'assets/btn_tab_me_nor.webp',
                       ),

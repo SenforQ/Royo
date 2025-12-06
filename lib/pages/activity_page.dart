@@ -35,7 +35,7 @@ class _ActivityPageState extends State<ActivityPage> {
 
   Future<void> _loadProfiles() async {
     try {
-      final String jsonString = await rootBundle.loadString('assets/user_profiles.json');
+      final String jsonString = await rootBundle.loadString('assets/NABI_Chat.json');
       final List<dynamic> jsonList = json.decode(jsonString);
       final List<UserProfile> allProfiles = jsonList.map((json) => UserProfile.fromJson(json)).toList();
       

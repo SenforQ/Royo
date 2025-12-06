@@ -7,6 +7,7 @@ import '../utils/workout_storage.dart';
 import '../models/user_profile.dart';
 import 'ai_chat_page.dart';
 import 'exercise_activities_page.dart';
+import 'figure_detail_page.dart';
 
 class CoursePage extends StatefulWidget {
   const CoursePage({super.key});
@@ -35,7 +36,7 @@ class _CoursePageState extends State<CoursePage> {
 
   Future<void> _loadRecommendedProfiles() async {
     try {
-      final String jsonString = await rootBundle.loadString('assets/user_profiles.json');
+      final String jsonString = await rootBundle.loadString('assets/NABI_Chat.json');
       final List<dynamic> jsonList = json.decode(jsonString);
       final List<UserProfile> profiles = jsonList.map((json) => UserProfile.fromJson(json)).toList();
       
@@ -455,18 +456,28 @@ class _CoursePageState extends State<CoursePage> {
           Row(
             children: [
               // 头像
-              Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 2,
-                  ),
-                  image: DecorationImage(
-                    image: AssetImage(profile.userIcon),
-                    fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FigureDetailPage(profile: profile),
+                    ),
+                  );
+                },
+                child: Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                    image: DecorationImage(
+                      image: AssetImage(profile.userIcon),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),

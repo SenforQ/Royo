@@ -45,7 +45,7 @@ class RoroTermsPage extends StatelessWidget {
                 child: WebViewWidget(
                   controller: WebViewController()
                     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                    ..loadRequest(Uri.parse('https://www.privacypolicies.com/live/63b5bc67-c279-4afc-bca0-490b9267cb06')),
+                    ..loadRequest(Uri.parse('https://www.privacypolicies.com/live/d03ca08c-8287-4697-9bb3-e36b0531ae69')),
                 ),
               ),
             ),

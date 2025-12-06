@@ -45,7 +45,7 @@ class RoroPrivacyPage extends StatelessWidget {
                 child: WebViewWidget(
                   controller: WebViewController()
                     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-                    ..loadRequest(Uri.parse('https://www.privacypolicies.com/live/bba998f9-6a35-4328-b78c-94b30e1a3d32')),
+                    ..loadRequest(Uri.parse('https://www.privacypolicies.com/live/ad42f8ce-b885-4dae-b8b7-21907f133de4')),
                 ),
               ),
             ),

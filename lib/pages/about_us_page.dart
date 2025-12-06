@@ -11,7 +11,7 @@ class AboutUsPage extends StatefulWidget {
 
 class _AboutUsPageState extends State<AboutUsPage> {
   String _appVersion = '1.0.0';
-  String _appName = 'Royo-';
+  String _appName = 'Nabi-';
 
   @override
   void initState() {
@@ -81,7 +81,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  'Royo-',
+                  'Nabi-',
                   style: TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,

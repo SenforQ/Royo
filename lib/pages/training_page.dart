@@ -1,31 +1,21 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import '../models/user_profile.dart';
 
-class WorkoutPage extends StatefulWidget {
-  final bool isCheckInMode;
-  final Function(bool)? onCheckInComplete;
-  final UserProfile? profile;
-
-  const WorkoutPage({
-    super.key,
-    this.isCheckInMode = false,
-    this.onCheckInComplete,
-    this.profile,
-  });
+class TrainingPage extends StatefulWidget {
+  const TrainingPage({super.key});
 
   @override
-  State<WorkoutPage> createState() => _WorkoutPageState();
+  State<TrainingPage> createState() => _TrainingPageState();
 }
 
-class _WorkoutPageState extends State<WorkoutPage> {
+class _TrainingPageState extends State<TrainingPage> {
   Timer? _timer;
   int _elapsedSeconds = 0;
   bool _isRunning = false;
   int _steps = 0;
   int _calories = 0;
-  int _lastCalorieStep = 0;
+  int _lastCalorieStep = 0; // 上一次计算卡路里时的步数
   final Random _random = Random();
 
   @override
@@ -34,32 +24,40 @@ class _WorkoutPageState extends State<WorkoutPage> {
     super.dispose();
   }
 
-  void _toggleTimer() {
+  void _startTimer() {
     if (_isRunning) {
-      _timer?.cancel();
-      setState(() {
-        _isRunning = false;
-      });
+      _stopTimer();
     } else {
       setState(() {
         _isRunning = true;
       });
-      _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         setState(() {
           _elapsedSeconds++;
-          final stepInc = _random.nextInt(2) + 1; // 1-2
-          _steps += stepInc;
-
+          // 每秒步数增加1-2（随机）
+          final stepIncrement = _random.nextInt(2) + 1; // 1-2
+          _steps += stepIncrement;
+          
+          // 检查是否达到100的倍数
           final currentHundreds = _steps ~/ 100;
           final lastHundreds = _lastCalorieStep ~/ 100;
+          
           if (currentHundreds > lastHundreds) {
-            final calorieInc = _random.nextInt(3) + 3; // 3-5
-            _calories += calorieInc;
+            // 每100步增加3-5卡路里（随机）
+            final calorieIncrement = _random.nextInt(3) + 3; // 3-5
+            _calories += calorieIncrement;
             _lastCalorieStep = _steps;
           }
         });
       });
     }
+  }
+
+  void _stopTimer() {
+    _timer?.cancel();
+    setState(() {
+      _isRunning = false;
+    });
   }
 
   String _formatTime(int seconds) {
@@ -73,49 +71,31 @@ class _WorkoutPageState extends State<WorkoutPage> {
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     final double topPadding = MediaQuery.of(context).padding.top;
-    final double bottomHeight = 297 + MediaQuery.of(context).padding.bottom;
-    const double timerTop = 24;
-    const double timerHeight = 104; // 72 btn + 32 padding
-    const double statTop = timerTop + timerHeight + 16; // 144
+    final double bottomPadding = MediaQuery.of(context).padding.bottom;
+    final double bottomHeight = 297 + bottomPadding + 120;
 
     return Scaffold(
       body: Stack(
         children: [
-          // 背景
-          Positioned.fill(
+          // 背景图片 - 不受其他布局影响
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
             child: Image.asset(
               'assets/training_content_bg.webp',
-              fit: BoxFit.cover,
+              width: screenSize.width,
+              fit: BoxFit.fitWidth,
               alignment: Alignment.topCenter,
             ),
           ),
-          // 返回按钮
+          // 标题 - 定位在 y: 75
           Positioned(
-            top: topPadding + 16,
-            left: 16,
-            child: GestureDetector(
-              onTap: () => Navigator.pop(context),
-              child: Container(
-                width: 40,
-                height: 40,
-                decoration: const BoxDecoration(
-                  color: Colors.black,
-                  shape: BoxShape.circle,
-                ),
-                child: const Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          // 标题
-          const Positioned(
-            top: 155,
+            top: 75,
             left: 20,
             right: 20,
-            child: Text(
-              'Workout Session',
+            child: const Text(
+              'Home Dumbbell Muscle-\nBuilding Training',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 26,
@@ -124,41 +104,52 @@ class _WorkoutPageState extends State<WorkoutPage> {
               ),
             ),
           ),
-          // 标签和评分
+          // 标签和星级评分 - 在底部背景图片上方
           Positioned(
             left: 20,
             right: 20,
             bottom: bottomHeight + 16,
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _buildTag('Indoor'),
-                const SizedBox(width: 8),
-                _buildTag('Custom'),
-                const SizedBox(width: 12),
-                ...List.generate(
-                  5,
-                  (index) => const Padding(
-                    padding: EdgeInsets.only(right: 6),
-                    child: Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                      size: 24,
-                    ),
-                  ),
+                // 标签
+                Row(
+                  children: [
+                    _buildTag('Staying at home'),
+                    const SizedBox(width: 8),
+                    _buildTag('Beginner'),
+                  ],
                 ),
-                const SizedBox(width: 4),
-                const Text(
-                  '9.8',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w700,
-                  ),
+                const SizedBox(height: 16),
+                // 星级评分
+                Row(
+                  children: [
+                    ...List.generate(
+                      5,
+                      (index) => const Padding(
+                        padding: EdgeInsets.only(right: 6),
+                        child: Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                          size: 28,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 6),
+                    const Text(
+                      '9.8',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 26,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-          // 底部区域
+          // 底部内容区域
           Positioned(
             left: 0,
             right: 0,
@@ -166,19 +157,21 @@ class _WorkoutPageState extends State<WorkoutPage> {
             height: bottomHeight,
             child: Stack(
               children: [
-                Positioned.fill(
-                  child: Image.asset(
-                    'assets/traning_bottom_bg.webp',
-                    fit: BoxFit.fill,
-                  ),
+                // 底部背景图片
+                Image.asset(
+                  'assets/traning_bottom_bg.webp',
+                  width: screenSize.width,
+                  height: bottomHeight,
+                  fit: BoxFit.fill,
                 ),
-                // 计时卡片
+                // 计时卡片 - 定位在底部图片内的 y: 30
                 Positioned(
-                  top: timerTop,
+                  top: 30,
                   left: 20,
                   right: 20,
                   child: Container(
-                    padding: const EdgeInsets.all(16),
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
                         begin: Alignment.topLeft,
@@ -200,9 +193,11 @@ class _WorkoutPageState extends State<WorkoutPage> {
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        // 启动按钮
                         GestureDetector(
-                          onTap: _toggleTimer,
+                          onTap: _startTimer,
                           child: Container(
                             width: 72,
                             height: 72,
@@ -221,22 +216,23 @@ class _WorkoutPageState extends State<WorkoutPage> {
                             ),
                           ),
                         ),
+                        // 计时器
                         Text(
                           _formatTime(_elapsedSeconds),
                           style: const TextStyle(
                             color: Colors.white,
-                            fontSize: 40,
+                            fontSize: 44,
                             fontWeight: FontWeight.w800,
-                            letterSpacing: 1.2,
+                            letterSpacing: 1.5,
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                // 数据卡片
+                // 数据卡片 - 定位在计时器卡片下方20的位置
                 Positioned(
-                  top: statTop,
+                  top: 162, // 30 (计时器top) + 112 (计时器高度: 20*2 padding + 72 按钮高度) + 20 (间距)
                   left: 20,
                   right: 20,
                   child: Row(
@@ -248,7 +244,6 @@ class _WorkoutPageState extends State<WorkoutPage> {
                           title: 'Calories',
                           value: '$_calories',
                           unit: 'Kcal',
-                          height: 125,
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -259,7 +254,6 @@ class _WorkoutPageState extends State<WorkoutPage> {
                           title: 'Exercise',
                           value: '${(_steps / 1000).toStringAsFixed(1)}',
                           unit: 'Km',
-                          height: 125,
                         ),
                       ),
                     ],
@@ -275,7 +269,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   Widget _buildTag(String text) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color: Colors.blue.withOpacity(0.85),
         borderRadius: BorderRadius.circular(12),
@@ -284,7 +278,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
         text,
         style: const TextStyle(
           color: Colors.white,
-          fontSize: 12,
+          fontSize: 13,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -297,14 +291,13 @@ class _WorkoutPageState extends State<WorkoutPage> {
     required String title,
     required String value,
     required String unit,
-    double height = 150,
   }) {
     return Container(
-      height: height,
-      padding: const EdgeInsets.all(12),
+      height: 150,
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: bgColor,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
@@ -318,20 +311,20 @@ class _WorkoutPageState extends State<WorkoutPage> {
         children: [
           Image.asset(
             imagePath,
-            width: 30,
-            height: 30,
+            width: 36,
+            height: 36,
             fit: BoxFit.contain,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 12),
           Text(
             title,
             style: TextStyle(
               color: Colors.white.withOpacity(0.9),
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
-          const SizedBox(height: 8),
+          const Spacer(),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -339,16 +332,16 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 value,
                 style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 30,
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              const SizedBox(width: 4),
+              const SizedBox(width: 6),
               Text(
                 unit,
                 style: TextStyle(
                   color: Colors.white.withOpacity(0.85),
-                  fontSize: 13,
+                  fontSize: 16,
                   fontWeight: FontWeight.w600,
                 ),
               ),

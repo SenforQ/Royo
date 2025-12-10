@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'pages/course_page.dart';
 import 'pages/exercise_page.dart';
-import 'pages/activity_page.dart';
+import 'pages/training_page.dart';
 import 'pages/me_page.dart';
 import 'pages/welcome_page.dart';
 import 'utils/agreement_storage.dart';
@@ -79,7 +79,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     const CoursePage(),
     const ExercisePage(),
-    const ActivityPage(),
+    const TrainingPage(),
     const MePage(),
   ];
 

@@ -466,17 +466,17 @@ class _CoursePageState extends State<CoursePage> {
                   );
                 },
                 child: Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 2,
-                    ),
-                    image: DecorationImage(
-                      image: AssetImage(profile.userIcon),
-                      fit: BoxFit.cover,
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 2,
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage(profile.userIcon),
+                    fit: BoxFit.cover,
                     ),
                   ),
                 ),

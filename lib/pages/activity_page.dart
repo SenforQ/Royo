@@ -149,11 +149,13 @@ class _ActivityPageState extends State<ActivityPage> {
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
+          child: Stack(
+            children: [
+              SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 66),
                 const Padding(
                   padding: EdgeInsets.only(left: 20),
                   child: Text(
@@ -207,6 +209,31 @@ class _ActivityPageState extends State<ActivityPage> {
                 SizedBox(height: MediaQuery.of(context).padding.bottom + 120),
               ],
             ),
+              ),
+              // 左上角返回按钮
+              Positioned(
+                top: 20,
+                left: 20,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                      size: 24,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

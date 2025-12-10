@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utils/workout_storage.dart';
@@ -7,8 +10,9 @@ import 'exercise_activities_page.dart';
 import 'training_plan_page.dart';
 import 'ai_chat_page.dart';
 import 'figure_detail_page.dart';
+import 'activity_page.dart';
+import 'bmi_input_page.dart';
 import '../models/user_profile.dart';
-import 'dart:convert';
 
 class ExercisePage extends StatefulWidget {
   const ExercisePage({super.key});
@@ -24,6 +28,8 @@ class _ExercisePageState extends State<ExercisePage> {
   Map<String, dynamic> _monthlyStats = {};
   List<Map<String, dynamic>> _recentWorkouts = [];
   List<UserProfile> _recommendedProfiles = [];
+  int _steps = 0;
+  double? _bmiValue = 20.3;
 
   @override
   void initState() {
@@ -46,6 +52,7 @@ class _ExercisePageState extends State<ExercisePage> {
     if (mounted) {
       setState(() {
         _todayTotalMinutes = minutes;
+        _steps = (_todayTotalMinutes * 120).toInt(); // 按今日锻炼时间映射步数
       });
     }
   }
@@ -95,6 +102,30 @@ class _ExercisePageState extends State<ExercisePage> {
     }
   }
 
+  Future<void> _navigateToBmiInput() async {
+    final result = await Navigator.push<double?>(
+      context,
+      MaterialPageRoute(builder: (context) => const BmiInputPage()),
+    );
+    if (mounted && result != null && result > 0) {
+      setState(() {
+        _bmiValue = result;
+      });
+    }
+  }
+
+  (String label, Color color, String subtitle) _getBmiStatus(double bmi) {
+    if (bmi < 18.5) {
+      return ('Low', const Color(0xFF1E88E5), 'BMI is low');
+    } else if (bmi < 25) {
+      return ('Normal', const Color(0xFF43A047), 'Your BMI is healthy');
+    } else if (bmi < 30) {
+      return ('Overweight', const Color(0xFFF9A825), 'BMI is above ideal');
+    } else {
+      return ('Obese', const Color(0xFFD32F2F), 'BMI is high');
+    }
+  }
+
   String _formatDate(String dateString) {
     try {
       final date = DateTime.parse(dateString);
@@ -131,24 +162,26 @@ class _ExercisePageState extends State<ExercisePage> {
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 20),
-                // 标题
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    'EXERCISE',
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.white,
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 20),
+                    // 标题
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(
+                        'EXERCISE',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
                 const SizedBox(height: 20),
                 // 今日进度卡片
                 Padding(
@@ -256,6 +289,53 @@ class _ExercisePageState extends State<ExercisePage> {
                       ],
                     ),
                   ),
+                ),
+                const SizedBox(height: 20),
+                // BMI & Steps 卡片
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: _buildHealthCard(
+                          title: 'BMI',
+                          subtitle: _bmiValue != null
+                              ? _getBmiStatus(_bmiValue!).$3
+                              : 'Tap to fill BMI',
+                          value: _bmiValue != null ? _bmiValue!.toStringAsFixed(1) : '--',
+                          badgeText: _bmiValue != null ? _getBmiStatus(_bmiValue!).$1 : 'Fill',
+                          badgeColor: _bmiValue != null ? _getBmiStatus(_bmiValue!).$2 : const Color(0xFF7C4DFF),
+                          gradientColors: const [
+                            Color(0xFF7C4DFF),
+                            Color(0xFF512DA8),
+                          ],
+                          imagePath: 'assets/img_bmi.webp',
+                          onTap: _navigateToBmiInput,
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: _buildHealthCard(
+                          title: 'Steps',
+                          subtitle: 'Based on workout time',
+                          value: '$_steps',
+                          badgeText: 'Standard',
+                          badgeColor: const Color(0xFF1B5E20),
+                          gradientColors: const [
+                            Color(0xFF536DFE),
+                            Color(0xFF283593),
+                          ],
+                          imagePath: 'assets/img_step.webp',
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
+                // Calorie data card
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: _buildCalorieCard(),
                 ),
                 const SizedBox(height: 20),
                 // 统计卡片
@@ -377,9 +457,237 @@ class _ExercisePageState extends State<ExercisePage> {
                   ),
                 ],
                 SizedBox(height: MediaQuery.of(context).padding.bottom + 20 + 69),
+                  ],
+                ),
+              ),
+              // 右上角 start 按钮
+              Positioned(
+                top: 20,
+                right: 20,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ActivityPage(),
+                      ),
+                    );
+                  },
+                  child: Image.asset(
+                    'assets/start.webp',
+                    width: 33,
+                    height: 33,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHealthCard({
+    required String title,
+    required String subtitle,
+    required String value,
+    required String badgeText,
+    required Color badgeColor,
+    required List<Color> gradientColors,
+    required String imagePath,
+    VoidCallback? onTap,
+  }) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 160,
+        padding: const EdgeInsets.all(14),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: gradientColors,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Stack(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 13,
+                  ),
+                ),
+                const Spacer(),
+                Text(
+                  value,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 26,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: badgeColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    badgeText,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
               ],
             ),
-          ),
+            Positioned(
+              right: 8,
+              bottom: 8,
+              child: Image.asset(
+                imagePath,
+                width: 60,
+                height: 60,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCalorieCard() {
+    final List<String> labels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    final int todayIndex = DateTime.now().weekday % 7; // Mon=1 ->1, Sun=0
+    final double calorieToday = (_steps * 0.04); // 简单按步数估算热量
+    final List<double> values = List<double>.filled(7, 0);
+    values[todayIndex] = (_steps / 12000).clamp(0.0, 1.0); // 以 12000 步为满刻度
+    const double maxBarHeight = 110;
+    const double minBarHeight = 10;
+    const double labelHeight = 22;
+
+    return Container(
+      height: 190,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(18),
+        image: const DecorationImage(
+          image: AssetImage('assets/calorie_data_bg.webp'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.asset(
+                  'assets/calorie_left_date.webp',
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.contain,
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Calorie data',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      const Text(
+                        'Weekly Data',
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        '${calorieToday.toStringAsFixed(0)} Kcal',
+                        style: const TextStyle(
+                          color: Colors.white70,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: List.generate(values.length, (index) {
+                  final double barHeight = (maxBarHeight * values[index]).clamp(minBarHeight, maxBarHeight);
+                  return Expanded(
+                    child: SizedBox(
+                      height: maxBarHeight + labelHeight + 6,
+                      child: Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Positioned(
+                            bottom: labelHeight + 6,
+                            child: Container(
+                              height: barHeight,
+                              width: 18,
+                              decoration: BoxDecoration(
+                                color: index == todayIndex
+                                    ? const Color(0xFFB388FF)
+                                    : Colors.white.withOpacity(0.25 + values[index] * 0.4),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 0,
+                            child: Text(
+                              labels[index],
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                }),
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -96,7 +96,7 @@ import Flutter
             print("无法获取构建版本号")
         }
         //版本号
-        ActivatedDelegateLitePermissiveEmeraldMagentaVersion = "-1"
+//        ActivatedDelegateLitePermissiveEmeraldMagentaVersion = "-1"
         
         self.observer()
         

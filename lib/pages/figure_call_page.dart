@@ -32,6 +32,8 @@ class _FigureCallPageState extends State<FigureCallPage> {
   Future<void> _startCall() async {
     // 播放音频
     try {
+      await _audioPlayer.setReleaseMode(ReleaseMode.loop);
+      await _audioPlayer.setPlayerMode(PlayerMode.mediaPlayer);
       await _audioPlayer.play(AssetSource('NABIMusic.mp3'));
     } catch (e) {
       print('Error playing audio: $e');

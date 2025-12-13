@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>animationAdapterState</key>
+	<string>sceneParameterAlignment</string>
+	<key>gridviewBufferTransparency</key>
+	<string>awaitModeInterval</string>
+	<key>localMethodShade</key>
+	<string>secondMenuBottom</string>
+	<key>requestForFramework</key>
+	<string>factoryWithoutOperation</string>
+	<key>statefulThanFacade</key>
+	<string>fusedSegueCoord</string>
+	<key>streamThanProxy</key>
+	<string>explicitBrushMode</string>
+	<key>touchInsideMediator</key>
+	<string>dimensionAroundObserver</string>
+	<key>usedConvolutionSaturation</key>
+	<string>shaderAndVar</string>
+</dict>
+</plist>

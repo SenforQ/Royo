@@ -216,14 +216,18 @@ class _TrainingPageState extends State<TrainingPage> {
                             ),
                           ),
                         ),
+                        const SizedBox(width: 12),
                         // 计时器
-                        Text(
-                          _formatTime(_elapsedSeconds),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 44,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: 1.5,
+                        Flexible(
+                          child: Text(
+                            _formatTime(_elapsedSeconds),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 40,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 1.2,
+                            ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],
@@ -308,6 +312,7 @@ class _TrainingPageState extends State<TrainingPage> {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(
             imagePath,
@@ -327,13 +332,17 @@ class _TrainingPageState extends State<TrainingPage> {
           const Spacer(),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                value,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w800,
+              Flexible(
+                child: Text(
+                  value,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 28,
+                    fontWeight: FontWeight.w800,
+                  ),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               const SizedBox(width: 6),

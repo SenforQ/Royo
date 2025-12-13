@@ -7,6 +7,7 @@ import 'user_agreement_page.dart';
 import 'workout_page.dart';
 import 'setting_editor_page.dart';
 import 'about_us_page.dart';
+import 'wallet_page.dart';
 import '../utils/workout_storage.dart';
 import '../utils/user_storage.dart';
 
@@ -241,6 +242,25 @@ class _MePageState extends State<MePage> {
                   ),
                   child: Column(
                     children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const WalletPage(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: screenSize.width - 40,
+                          margin: const EdgeInsets.only(bottom: 12),
+                          child: Image.asset(
+                            'assets/wallet_cell.webp',
+                            width: screenSize.width - 40,
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ),
+                      ),
                       _buildMenuItem(
                         context: context,
                         icon: 'assets/icon_me_privacy_policy.webp',

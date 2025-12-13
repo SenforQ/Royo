@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>awaitTierFormat</key>
+	<string>reducerStyleRotation</string>
+	<key>deferredResourceInset</key>
+	<string>prevLayoutInterval</string>
+	<key>firstCapsuleVisibility</key>
+	<string>appbarByAction</string>
+	<key>responsiveNotifierBehavior</key>
+	<string>difficultGraphRotation</string>
+	<key>tabbarVariableForce</key>
+	<string>assetViaInterpreter</string>
+</dict>
+</plist>

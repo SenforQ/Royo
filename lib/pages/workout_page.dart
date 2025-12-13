@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../models/user_profile.dart';
+import '../services/coin_service.dart';
+import 'wallet_page.dart';
 
 class WorkoutPage extends StatefulWidget {
   final bool isCheckInMode;
@@ -27,6 +29,14 @@ class _WorkoutPageState extends State<WorkoutPage> {
   int _calories = 0;
   int _lastCalorieStep = 0;
   final Random _random = Random();
+  bool _isInitializing = true; // Whether initializing (deducting coins)
+
+  @override
+  void initState() {
+    super.initState();
+    // Deduct 5 Coins every time entering the page
+    _initializeAndDeductCoins();
+  }
 
   @override
   void dispose() {
@@ -34,33 +44,96 @@ class _WorkoutPageState extends State<WorkoutPage> {
     super.dispose();
   }
 
+  Future<void> _initializeAndDeductCoins() async {
+    setState(() {
+      _isInitializing = true;
+    });
+
+    // Deduct 5 Coins
+    final success = await CoinService.deductCoins(5);
+    if (!mounted) return;
+
+    if (!success) {
+      final current = await CoinService.getCurrentCoins();
+      await showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          backgroundColor: const Color(0xFF1C191D),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Text(
+            'Coins Not Enough',
+            style: TextStyle(color: Colors.white),
+          ),
+          content: Text(
+            'Recording time requires 5 Coins.\nCurrent balance: $current Coins.',
+            style: const TextStyle(color: Colors.white70, height: 1.4),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pop(); // Return to previous page
+              },
+              child: const Text('Later', style: TextStyle(color: Colors.white70)),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pop(); // Close dialog and page first
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const WalletPage()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF420372),
+                foregroundColor: Colors.white,
+              ),
+              child: const Text('Top Up'),
+            ),
+          ],
+        ),
+      );
+      return;
+    }
+
+    if (mounted) {
+      setState(() {
+        _isInitializing = false;
+      });
+    }
+  }
+
   void _toggleTimer() {
+    if (_isInitializing) return; // Operation not allowed during initialization
+
     if (_isRunning) {
       _timer?.cancel();
       setState(() {
         _isRunning = false;
       });
-    } else {
-      setState(() {
-        _isRunning = true;
-      });
-      _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-        setState(() {
-          _elapsedSeconds++;
-          final stepInc = _random.nextInt(2) + 1; // 1-2
-          _steps += stepInc;
-
-          final currentHundreds = _steps ~/ 100;
-          final lastHundreds = _lastCalorieStep ~/ 100;
-          if (currentHundreds > lastHundreds) {
-            final calorieInc = _random.nextInt(3) + 3; // 3-5
-            _calories += calorieInc;
-            _lastCalorieStep = _steps;
-          }
-        });
-      });
+      return;
     }
+
+    setState(() {
+      _isRunning = true;
+    });
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      setState(() {
+        _elapsedSeconds++;
+        final stepInc = _random.nextInt(2) + 1; // 1-2
+        _steps += stepInc;
+
+        final currentHundreds = _steps ~/ 100;
+        final lastHundreds = _lastCalorieStep ~/ 100;
+        if (currentHundreds > lastHundreds) {
+          final calorieInc = _random.nextInt(3) + 3; // 3-5
+          _calories += calorieInc;
+          _lastCalorieStep = _steps;
+        }
+      });
+    });
   }
+
 
   String _formatTime(int seconds) {
     final hours = seconds ~/ 3600;
@@ -81,7 +154,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
     return Scaffold(
       body: Stack(
         children: [
-          // 背景
+          // Background
           Positioned.fill(
             child: Image.asset(
               'assets/training_content_bg.webp',
@@ -89,7 +162,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
               alignment: Alignment.topCenter,
             ),
           ),
-          // 返回按钮
+          // Back button
           Positioned(
             top: topPadding + 16,
             left: 16,
@@ -109,7 +182,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
               ),
             ),
           ),
-          // 标题
+          // Title
           const Positioned(
             top: 155,
             left: 20,
@@ -124,7 +197,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
               ),
             ),
           ),
-          // 标签和评分
+          // Tags and rating
           Positioned(
             left: 20,
             right: 20,
@@ -158,7 +231,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
               ],
             ),
           ),
-          // 底部区域
+          // Bottom area
           Positioned(
             left: 0,
             right: 0,
@@ -172,7 +245,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                // 计时卡片
+                // Timer card
                 Positioned(
                   top: timerTop,
                   left: 20,
@@ -234,7 +307,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                     ),
                   ),
                 ),
-                // 数据卡片
+                // Data cards
                 Positioned(
                   top: statTop,
                   left: 20,

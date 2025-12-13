@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>completerOrPrototype</key>
+	<string>buttonShapeBottom</string>
+	<key>cubeTypeEdge</key>
+	<string>localMenuDistance</string>
+	<key>precisionPhaseBrightness</key>
+	<string>cubitOperationTransparency</string>
+	<key>profileLikeVisitor</key>
+	<string>textLayerResponse</string>
+	<key>visibleParticleDelay</key>
+	<string>constViewCount</string>
+</dict>
+</plist>

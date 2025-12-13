@@ -6,6 +6,8 @@ import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 import '../utils/user_storage.dart';
+import '../services/coin_service.dart';
+import 'wallet_page.dart';
 
 class AiChatPage extends StatefulWidget {
   const AiChatPage({super.key});
@@ -19,6 +21,8 @@ class _AiChatPageState extends State<AiChatPage> {
   final ScrollController _scrollController = ScrollController();
   final List<ChatMessage> _messages = [];
   bool _isLoading = false;
+  bool _hasPaidForSession = false; // Whether coins have been deducted for this session
+  bool _isInitializing = true; // Whether initializing (deducting coins)
   String? _userAvatarPath;
   File? _userAvatarFile;
 
@@ -29,17 +33,8 @@ class _AiChatPageState extends State<AiChatPage> {
   void initState() {
     super.initState();
     _loadUserAvatar();
-    // 添加AI的欢迎消息
-    _messages.add(ChatMessage(
-      text: 'Hello! I\'m your AI fitness assistant. How can I help you with your workout today?',
-      isUser: false,
-      timestamp: DateTime.now(),
-      showQuickButtons: true, // 标记显示快捷按钮
-    ));
-    // 延迟滚动到底部
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _scrollToBottom();
-    });
+    // Deduct 200 Coins every time entering the page
+    _initializeAndDeductCoins();
   }
 
   @override
@@ -86,13 +81,50 @@ class _AiChatPageState extends State<AiChatPage> {
     }
   }
 
+  Future<void> _initializeAndDeductCoins() async {
+    setState(() {
+      _isInitializing = true;
+    });
+
+    // Deduct 200 Coins
+    final ok = await _deductCoinsAndConfirm(
+      cost: 200,
+      featureName: 'AI Coach',
+    );
+
+    if (!mounted) return;
+
+    if (!ok) {
+      // Insufficient balance, return to previous page
+      Navigator.of(context).pop();
+      return;
+    }
+
+    setState(() {
+      _hasPaidForSession = true;
+      _isInitializing = false;
+    });
+
+    // Add AI welcome message
+    _messages.add(ChatMessage(
+      text: 'Hello! I\'m your AI fitness assistant. How can I help you with your workout today?',
+      isUser: false,
+      timestamp: DateTime.now(),
+      showQuickButtons: true, // Mark to show quick buttons
+    ));
+    // Delay scroll to bottom
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToBottom();
+    });
+  }
+
   Future<void> _sendMessage() async {
     final text = _messageController.text.trim();
-    if (text.isEmpty || _isLoading) return;
+    if (text.isEmpty || _isLoading || _isInitializing) return;
 
-    // 添加用户消息
+    // Add user message
     setState(() {
-      // 隐藏所有快捷按钮
+      // Hide all quick buttons
       for (var msg in _messages) {
         msg.showQuickButtons = false;
       }
@@ -108,7 +140,7 @@ class _AiChatPageState extends State<AiChatPage> {
     _scrollToBottom();
 
     try {
-      // 构建系统提示词，让AI作为健身助手
+      // Build system prompt to make AI act as fitness assistant
       final systemPrompt = '''You are a professional AI fitness assistant. You help users with:
 - Workout plans and exercise recommendations
 - Fitness tips and motivation
@@ -116,12 +148,12 @@ class _AiChatPageState extends State<AiChatPage> {
 - Answering questions about health and exercise
 Please respond in English, be helpful, encouraging, and professional. Keep responses concise and practical.''';
 
-      // 构建消息历史
+      // Build message history
       final List<Map<String, String>> messages = [
         {'role': 'system', 'content': systemPrompt},
       ];
 
-      // 添加对话历史（最近10条消息）
+      // Add conversation history (last 10 messages)
       final recentMessages = _messages.length > 10 
           ? _messages.sublist(_messages.length - 10)
           : _messages;
@@ -133,7 +165,7 @@ Please respond in English, be helpful, encouraging, and professional. Keep respo
         });
       }
 
-      // 调用智谱AI API
+      // Call Zhipu AI API
       final response = await http.post(
         Uri.parse(_apiUrl),
         headers: {
@@ -177,6 +209,52 @@ Please respond in English, be helpful, encouraging, and professional. Keep respo
       });
       _scrollToBottom();
     }
+  }
+
+  Future<bool> _deductCoinsAndConfirm({
+    required int cost,
+    required String featureName,
+  }) async {
+    final success = await CoinService.deductCoins(cost);
+    if (success) return true;
+
+    if (!mounted) return false;
+    final current = await CoinService.getCurrentCoins();
+    await showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        backgroundColor: const Color(0xFF1C191D),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Text(
+          'Coins Not Enough',
+          style: TextStyle(color: Colors.white),
+        ),
+        content: Text(
+          '$featureName requires $cost Coins.\nCurrent balance: $current Coins.',
+          style: const TextStyle(color: Colors.white70, height: 1.4),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Later', style: TextStyle(color: Colors.white70)),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const WalletPage()),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF420372),
+              foregroundColor: Colors.white,
+            ),
+            child: const Text('Top Up'),
+          ),
+        ],
+      ),
+    );
+    return false;
   }
 
   @override
@@ -243,9 +321,15 @@ Please respond in English, be helpful, encouraging, and professional. Keep respo
         child: SafeArea(
           child: Column(
             children: [
-              // 消息列表
+              // Message list
               Expanded(
-                child: ListView.builder(
+                child: _isInitializing
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                        ),
+                      )
+                    : ListView.builder(
                   controller: _scrollController,
                   padding: const EdgeInsets.all(16),
                   itemCount: _messages.length,
@@ -255,74 +339,75 @@ Please respond in English, be helpful, encouraging, and professional. Keep respo
                   },
                 ),
               ),
-              // 输入框
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
-                  border: Border(
-                    top: BorderSide(
-                      color: Colors.white.withOpacity(0.2),
-                      width: 1,
+              // Input box
+              if (!_isInitializing)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.3),
+                    border: Border(
+                      top: BorderSide(
+                        color: Colors.white.withOpacity(0.2),
+                        width: 1,
+                      ),
                     ),
                   ),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        child: TextField(
-                          controller: _messageController,
-                          style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
-                            hintText: 'Type a message...',
-                            hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
-                            border: InputBorder.none,
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 12,
-                            ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(24),
                           ),
-                          maxLines: null,
-                          textInputAction: TextInputAction.send,
-                          onSubmitted: (_) => _sendMessage(),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    GestureDetector(
-                      onTap: _isLoading ? null : _sendMessage,
-                      child: Container(
-                        width: 48,
-                        height: 48,
-                        decoration: BoxDecoration(
-                          color: _isLoading 
-                              ? Colors.grey.withOpacity(0.5)
-                              : const Color(0xFF8B5CF6),
-                          shape: BoxShape.circle,
-                        ),
-                        child: _isLoading
-                            ? const Padding(
-                                padding: EdgeInsets.all(12),
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                                ),
-                              )
-                            : const Icon(
-                                Icons.send,
-                                color: Colors.white,
-                                size: 24,
+                          child: TextField(
+                            controller: _messageController,
+                            style: const TextStyle(color: Colors.white),
+                            decoration: InputDecoration(
+                              hintText: 'Type a message...',
+                              hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                              border: InputBorder.none,
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 12,
                               ),
+                            ),
+                            maxLines: null,
+                            textInputAction: TextInputAction.send,
+                            onSubmitted: (_) => _sendMessage(),
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 12),
+                      GestureDetector(
+                        onTap: _isLoading ? null : _sendMessage,
+                        child: Container(
+                          width: 48,
+                          height: 48,
+                          decoration: BoxDecoration(
+                            color: _isLoading 
+                                ? Colors.grey.withOpacity(0.5)
+                                : const Color(0xFF8B5CF6),
+                            shape: BoxShape.circle,
+                          ),
+                          child: _isLoading
+                              ? const Padding(
+                                  padding: EdgeInsets.all(12),
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                                  ),
+                                )
+                              : const Icon(
+                                  Icons.send,
+                                  color: Colors.white,
+                                  size: 24,
+                                ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
             ],
           ),
         ),
@@ -411,7 +496,7 @@ Please respond in English, be helpful, encouraging, and professional. Keep respo
           ],
             ],
           ),
-          // 快捷问题按钮（只在AI消息且showQuickButtons为true时显示）
+          // Quick question buttons (only shown when AI message and showQuickButtons is true)
           if (!message.isUser && message.showQuickButtons) ...[
             const SizedBox(height: 12),
             Padding(
@@ -436,7 +521,7 @@ Please respond in English, be helpful, encouraging, and professional. Keep respo
   Widget _buildQuickButton(String label, String question) {
     return GestureDetector(
       onTap: () {
-        // 自动发送对应的问题
+        // Automatically send corresponding question
         _messageController.text = question;
         _sendMessage();
       },

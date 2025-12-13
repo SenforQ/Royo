@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aperturePhaseTheme</key>
+	<string>directDialogsSpeed</string>
+	<key>controllerForTask</key>
+	<string>deferredPresenterSkewy</string>
+	<key>dependencyVariableStatus</key>
+	<string>playbackMethodStatus</string>
+	<key>getxSincePhase</key>
+	<string>accordionBuilderVisible</string>
+	<key>synchronousCommandCount</key>
+	<string>persistentChartTag</string>
+	<key>taskStageBrightness</key>
+	<string>widgetCommandInset</string>
+</dict>
+</plist>

@@ -13,6 +13,8 @@ import 'figure_detail_page.dart';
 import 'activity_page.dart';
 import 'bmi_input_page.dart';
 import '../models/user_profile.dart';
+import '../utils/bmi_storage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExercisePage extends StatefulWidget {
   const ExercisePage({super.key});
@@ -29,7 +31,7 @@ class _ExercisePageState extends State<ExercisePage> {
   List<Map<String, dynamic>> _recentWorkouts = [];
   List<UserProfile> _recommendedProfiles = [];
   int _steps = 0;
-  double? _bmiValue = 20.3;
+  double? _bmiValue;
 
   @override
   void initState() {
@@ -44,7 +46,17 @@ class _ExercisePageState extends State<ExercisePage> {
       _loadStats(),
       _loadRecentWorkouts(),
       _loadRecommendedProfiles(),
+      _loadBMI(),
     ]);
+  }
+
+  Future<void> _loadBMI() async {
+    final bmi = await BmiStorage.getCurrentBmi();
+    if (mounted) {
+      setState(() {
+        _bmiValue = bmi;
+      });
+    }
   }
 
   Future<void> _loadTodayTotalMinutes() async {
@@ -108,9 +120,7 @@ class _ExercisePageState extends State<ExercisePage> {
       MaterialPageRoute(builder: (context) => const BmiInputPage()),
     );
     if (mounted && result != null && result > 0) {
-      setState(() {
-        _bmiValue = result;
-      });
+      await _loadBMI();
     }
   }
 
@@ -311,6 +321,7 @@ class _ExercisePageState extends State<ExercisePage> {
                           ],
                           imagePath: 'assets/img_bmi.webp',
                           onTap: _navigateToBmiInput,
+                          showReference: _bmiValue != null,
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -497,12 +508,13 @@ class _ExercisePageState extends State<ExercisePage> {
     required List<Color> gradientColors,
     required String imagePath,
     VoidCallback? onTap,
+    bool showReference = false,
   }) {
     return GestureDetector(
       onTap: onTap,
       child: Container(
         height: 160,
-        padding: const EdgeInsets.all(14),
+        padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
@@ -521,16 +533,16 @@ class _ExercisePageState extends State<ExercisePage> {
                   title,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 4),
                 Text(
                   subtitle,
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.8),
-                    fontSize: 13,
+                    fontSize: 12,
                   ),
                 ),
                 const Spacer(),
@@ -538,13 +550,13 @@ class _ExercisePageState extends State<ExercisePage> {
                   value,
                   style: const TextStyle(
                     color: Colors.white,
-                    fontSize: 26,
+                    fontSize: 24,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 4),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     color: badgeColor,
                     borderRadius: BorderRadius.circular(12),
@@ -553,11 +565,41 @@ class _ExercisePageState extends State<ExercisePage> {
                     badgeText,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 11,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
+                if (showReference && title == 'BMI') ...[
+                  const SizedBox(height: 4),
+                  GestureDetector(
+                    onTap: () async {
+                      final uri = Uri.parse('https://www.cdc.gov/healthyweight/assessing/bmi/index.html');
+                      if (await canLaunchUrl(uri)) {
+                        await launchUrl(uri, mode: LaunchMode.externalApplication);
+                      }
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.info_outline,
+                          color: Colors.white.withOpacity(0.7),
+                          size: 10,
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          'Reference',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.7),
+                            fontSize: 9,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ],
             ),
             Positioned(

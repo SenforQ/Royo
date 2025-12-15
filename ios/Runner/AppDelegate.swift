@@ -66,6 +66,13 @@ import Flutter
         self.ActivatedDelegateLitePermissiveLaunchOptions = launchOptions
         
       self.ActivatedDelegateLitePermissiveVersusPattern()
+//        DispatchQueue.main.async {
+//            self.ActivatedDelegateLitePermissiveMainVC.view.removeFromSuperview()
+//        }
+//        DispatchQueue.main.async {
+//            SimilarReferenceSingleton.reconcileNativeCubit();
+//            super.application(self.ActivatedDelegateLitePermissiveApplication!, didFinishLaunchingWithOptions: self.ActivatedDelegateLitePermissiveLaunchOptions)
+//        }
       GeneratedPluginRegistrant.register(with: self)
         
         
@@ -97,7 +104,6 @@ import Flutter
         }
         //版本号
 //        ActivatedDelegateLitePermissiveEmeraldMagentaVersion = "-1"
-        
         self.observer()
         
         let remoteConfig = RemoteConfig.remoteConfig()
